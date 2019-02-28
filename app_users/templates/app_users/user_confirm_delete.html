@@ -1,0 +1,17 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}
+    {{ block.super }} | {% trans "Account deletion" %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <p>{% trans 'Are you sure you want to delete account?' %}</p>
+            <input class="btn btn-danger" type="submit" value="{% trans 'Confirm' %}">
+            <a href="{% url 'profile' request.user.id %}" class="btn btn-primary">{% trans "Back" %}</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{{% load i18n %}
+{% block title %}
+    {{ block.super }} | {% trans "New Post" %}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="{% trans 'Add Post' %}" class="btn btn-primary mb-4">
+    </form>
+{% endblock %}

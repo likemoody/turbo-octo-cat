@@ -1,0 +1,43 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"/>
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'profile' post.author.id %}">{{ post.author }}</a>
+                <small class="text-muted">{% trans "created" %}: {{ post.date_posted|date:"F d, Y" }}</small>
+                {% if post.date_posted != post.last_edited_on %}
+                    <small class="text-muted"> | {% trans "last edited" %}: {{ post.last_edited_on|date:"F d, Y" }}</small>
+                {% endif %}
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p class="js-container-mini article-content">{{ post.content }}</p>
+        </div>
+    </article>
+    {% if post.post_comments.all %}
+        <h5>{% trans "Comments" %}:</h5>
+        {% for comment in post.post_comments.all %}
+            <div class="media mb-4 js-container-mini">
+                <div class="mr-4">
+                    <a class="mr-2" href="{% url 'profile' comment.author.id %}">{{ comment.author }}</a><br>
+                    <small class="text-muted">{{ comment.date_posted|date:"d.m.Y g:h a" }}</small>
+                </div>
+                <div class="media-body">
+                    <p class="js-container-mini">
+                        <small>{{ comment.content }}</small>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <h6>{% trans "Your comment" %}</h6>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ add_comment_form|crispy }}
+        <input class="btn btn-primary mb-4" type="submit" value="Add Comment">
+    </form>
+
+{% endblock %}

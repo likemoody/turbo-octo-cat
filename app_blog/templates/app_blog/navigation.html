@@ -1,0 +1,44 @@
+{% load i18n %}
+
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand pr-1 mr-1 " href="{% url 'blog-home' %}">PMD</a><sup
+                class="version mr-4">{{ project_version }}</sup>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="#">{% trans 'About' %}</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link"
+                           href="{% url 'profile' request.user.id %}">{{ request.user.username }}</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login' %}">{% trans 'Login' %}</a>
+                        <a class="nav-item nav-link" href="{% url 'registration' %}">{% trans 'Register' %}</a>
+                    {% endif %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    <form action="{% url "set_language" %}" method="post">
+                        {% csrf_token %}
+                        <select name="language" class="form-control-sm" onchange="this.form.submit()">
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"
+                                        {% if language.code == LANGUAGE_CODE %}selected="selected"{% endif %}>
+                                    {{ language.name_local }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

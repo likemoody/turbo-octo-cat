@@ -1,0 +1,12 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+    <h4>{% trans "Message to" %} {{ user_to.username }}</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ send_message_to_form|crispy }}
+        <input type="submit" value="{% trans 'Send Message' %}" class="btn btn-primary mb-4">
+    </form>
+{% endblock %}

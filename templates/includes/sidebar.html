@@ -1,0 +1,22 @@
+{% load i18n %}
+<div class="content-section">
+    <h3>{{ current_date|date:"l" }}</h3>
+    <h3>{{ current_date|date:"F d, Y" }}</h3>
+    <div class='text-muted'>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-light btn btn-light jm-link-text-setting"
+               href="{% url 'create-post' %}">{% trans 'New Post' %}
+            </a>
+            <a class="list-group-item list-group-item-light btn btn-light jm-link-text-setting"
+               href="{% url 'conversations' %}">
+                {% trans "Conversations" %}
+                {% if unread_messages %}
+                    <span class="badge badge-primary badge-pill">{{ unread_messages }}</span>
+                {% endif %}
+            </a>
+            <a class="list-group-item list-group-item-light btn btn-light jm-link-text-setting"
+               href="{% url 'bookcrossing' %}">{% trans 'Bookcrossing' %}
+            </a>
+        </div>
+    </div>
+</div>

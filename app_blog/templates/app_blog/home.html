@@ -1,0 +1,34 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}
+    {{ block.super }} | {% trans 'Home' %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% trans 'Posts' %}</h2>
+    {% for post in queryset %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"/>
+            <div class="media-body ">
+                <div class="article-metadata">
+                    <a class="mr-2" href="{% url 'profile' post.author.id %}">{{ post.author }}</a>
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                    {% if post.post_comments.all|length > 1 %}
+                        <small class="text-muted">|
+                            <a href="{% url 'post' post.id %}">{{ post.post_comments.all|length }} {% trans 'comments' %}</a>
+                        </small>
+                    {% elif  post.post_comments.all|length == 1 %}
+                        <small class="text-muted">|
+                            <a href="{% url 'post' post.id %}">1 {% trans 'comment' %}</a></small>
+                    {% endif %}
+                </div>
+                <h2><a class="article-title" href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
+                <div class="">
+                    <p class="js-container-mini article-content">{{ post.content }}</p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+    {% include 'includes/pagination.html' %}
+{% endblock %}

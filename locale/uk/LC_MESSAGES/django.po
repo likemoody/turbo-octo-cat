@@ -1,0 +1,292 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-02 09:23+0000\n"
+"PO-Revision-Date: 2019-01-27 20:55+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: app_blog/forms.py:11 app_users/forms.py:33
+msgid "Title"
+msgstr "Назва"
+
+#: app_blog/forms.py:12 app_users/forms.py:34
+msgid "Content"
+msgstr "Зміст"
+
+#: app_blog/templates/app_blog/conversations.html:9
+msgid "New Message"
+msgstr "Нове повідомлення"
+
+#: app_blog/templates/app_blog/conversations.html:16
+msgid "Send"
+msgstr "Надіслати"
+
+#: app_blog/templates/app_blog/conversations.html:20
+msgid "My Messages"
+msgstr "Моі повідомлення"
+
+#: app_blog/templates/app_blog/conversations.html:36
+msgid "More"
+msgstr "Більше"
+
+#: app_blog/templates/app_blog/conversations.html:42
+msgid "You don't have messages yet."
+msgstr "У Вас ще немає повідомлень."
+
+#: app_blog/templates/app_blog/create_post.html:5
+#: app_blog/templates/app_blog/sidebar.html:8
+msgid "New Post"
+msgstr "Новий пост"
+
+#: app_blog/templates/app_blog/create_post.html:12
+msgid "Add Post"
+msgstr "Новий пост"
+
+#: app_blog/templates/app_blog/home.html:5
+msgid "Home"
+msgstr "Головна"
+
+#: app_blog/templates/app_blog/home.html:9
+msgid "Posts"
+msgstr "Пости"
+
+#: app_blog/templates/app_blog/home.html:19
+#: app_users/templates/app_users/profile_view.html:62
+msgid "comments"
+msgstr "коментарі"
+
+#: app_blog/templates/app_blog/home.html:23
+#: app_users/templates/app_users/profile_view.html:64
+msgid "comment"
+msgstr "коментар"
+
+#: app_blog/templates/app_blog/message_view.html:9
+msgid "From"
+msgstr "Від"
+
+#: app_blog/templates/app_blog/message_view.html:10
+msgid "To"
+msgstr "До"
+
+#: app_blog/templates/app_blog/message_view.html:15
+#: app_users/templates/app_users/user_confirm_delete.html:14
+msgid "Back"
+msgstr "Назад"
+
+#: app_blog/templates/app_blog/navigation.html:19
+msgid "About"
+msgstr "Про нас"
+
+#: app_blog/templates/app_blog/navigation.html:26
+#: app_users/templates/app_users/logout.html:5
+msgid "Logout"
+msgstr "Вихід"
+
+#: app_blog/templates/app_blog/navigation.html:28
+#: app_users/templates/app_users/login.html:4
+msgid "Login"
+msgstr "Вхід"
+
+#: app_blog/templates/app_blog/navigation.html:29
+msgid "Register"
+msgstr "Реєстрація"
+
+#: app_blog/templates/app_blog/post_edit.html:9
+msgid "Editing Post"
+msgstr "Редагування посту"
+
+#: app_blog/templates/app_blog/post_view.html:11
+msgid "created"
+msgstr "створено"
+
+#: app_blog/templates/app_blog/post_view.html:13
+msgid "last edited"
+msgstr "остання зміна"
+
+#: app_blog/templates/app_blog/post_view.html:21
+msgid "Comments"
+msgstr "Коментарі"
+
+#: app_blog/templates/app_blog/post_view.html:36
+msgid "Your comment"
+msgstr "Ваш коментар"
+
+#: app_blog/templates/app_blog/send_pm.html:6
+#: app_users/templates/app_users/profile_view.html:39
+msgid "Send message"
+msgstr "Надіслати повідомлення"
+
+#: app_blog/templates/app_blog/send_pm.html:10
+#: app_blog/templates/app_blog/send_pm_to.html:10
+msgid "Send Message"
+msgstr "Надіслати повідомлення"
+
+#: app_blog/templates/app_blog/send_pm_to.html:6
+msgid "Message to"
+msgstr "Повідомлення до"
+
+#: app_blog/templates/app_blog/sidebar.html:12
+msgid "Conversations"
+msgstr "Розмови"
+
+#: app_blog/views/messages.py:36 app_blog/views/messages.py:74
+#: app_blog/views/messages.py:92
+msgid "Message has been sent."
+msgstr "Повідомлення надіслано."
+
+#: app_blog/views/posts.py:19
+msgid "Post has been created"
+msgstr "Пост створено"
+
+#: app_users/forms.py:10
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: app_users/templates/app_users/login.html:11
+#: app_users/templates/app_users/login.html:15
+#: app_users/templates/app_users/registration.html:22
+msgid "Log In"
+msgstr "Увійти"
+
+#: app_users/templates/app_users/login.html:20
+msgid "Don't Have An Account?"
+msgstr "Немає облікового запису?"
+
+#: app_users/templates/app_users/login.html:20
+msgid "Create One"
+msgstr "Створити"
+
+#: app_users/templates/app_users/logout.html:9
+msgid "You have been logged out"
+msgstr "Ви вийшли зі свого облікового запису"
+
+#: app_users/templates/app_users/logout.html:12
+msgid "Log In Again"
+msgstr "Увійдіть повторно"
+
+#: app_users/templates/app_users/profile_edit.html:5
+msgid "Edit Profile"
+msgstr "Редагувати профіль"
+
+#: app_users/templates/app_users/profile_edit.html:23
+#: app_users/templates/app_users/profile_view.html:29
+msgid "Profile Info"
+msgstr "Профіль"
+
+#: app_users/templates/app_users/profile_edit.html:29
+msgid "Save"
+msgstr "Записати"
+
+#: app_users/templates/app_users/profile_view.html:5
+msgid "My Profile"
+msgstr "Мій профіль"
+
+#: app_users/templates/app_users/profile_view.html:7
+#, python-format
+msgid "%(uname)s's Profile"
+msgstr "Профіль користувача %(uname)s"
+
+#: app_users/templates/app_users/profile_view.html:30
+msgid "Username"
+msgstr "Назва користувача"
+
+#: app_users/templates/app_users/profile_view.html:31
+msgid "Date joined"
+msgstr "Дата приєднання"
+
+#: app_users/templates/app_users/profile_view.html:34
+msgid "Update Info"
+msgstr "Оновити дані"
+
+#: app_users/templates/app_users/profile_view.html:35
+msgid "Change Password"
+msgstr "Змінити пароль"
+
+#: app_users/templates/app_users/profile_view.html:36
+msgid "Delete account"
+msgstr "Видалити аккаунт"
+
+#: app_users/templates/app_users/profile_view.html:44
+msgid "My Posts"
+msgstr "Мої пости"
+
+#: app_users/templates/app_users/profile_view.html:46
+msgid "You don't have posts yet"
+msgstr "У Вас ще немає постів"
+
+#: app_users/templates/app_users/profile_view.html:49
+#, python-format
+msgid "%(uname)s's posts"
+msgstr "Пости користувача %(uname)s"
+
+#: app_users/templates/app_users/profile_view.html:51
+msgid "No posts here yet"
+msgstr "Тут ще немає постів"
+
+#: app_users/templates/app_users/registration.html:5
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: app_users/templates/app_users/registration.html:13
+msgid "Join Us"
+msgstr "Приєднуйся"
+
+#: app_users/templates/app_users/registration.html:17
+msgid "Sign Up"
+msgstr "Зареєструватись"
+
+#: app_users/templates/app_users/registration.html:22
+msgid "Already Have An Account?"
+msgstr "Вже є обліковий запис?"
+
+#: app_users/templates/app_users/user_confirm_delete.html:5
+msgid "Account deletion"
+msgstr "Видалення аккаунту"
+
+#: app_users/templates/app_users/user_confirm_delete.html:12
+msgid "Are you sure you want to delete account?"
+msgstr "Чи Ви впевнені, що Ви хочете видалити аккаунт?"
+
+#: app_users/templates/app_users/user_confirm_delete.html:13
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: app_users/views/profile.py:37
+msgid "Profile updated successfully"
+msgstr "Дане профілю оновлені"
+
+#: app_users/views/profile.py:54
+msgid "Password has been changed successfully"
+msgstr "Пароль успішно змінено"
+
+#: app_users/views/profile.py:56
+msgid "Error occurred"
+msgstr "Помилка"
+
+#: templates/includes/pagination.html:7 templates/includes/pagination.html:11
+msgid "Previous"
+msgstr "Попередня"
+
+#: templates/includes/pagination.html:20
+msgid "(current)"
+msgstr "(актуальна)"
+
+#: templates/includes/pagination.html:32 templates/includes/pagination.html:36
+msgid "Next"
+msgstr "Наступна"

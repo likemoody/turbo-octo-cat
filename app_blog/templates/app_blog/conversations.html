@@ -1,0 +1,44 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+    <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+            {% trans 'New Message' %}
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ send_message_form|crispy }}
+            <input type="submit" value="{% trans 'Send' %}" class="btn btn-primary mb-4">
+        </form>
+    </div>
+
+    <h4>{% trans 'My Messages' %}</h4>
+    {% if queryset %}
+        {% for pm in queryset %}
+            <section class="media content-section">
+                <img class="rounded-circle article-img" src="{{ pm.user_from.profile.image.url }}"/>
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <small class="text-muted">
+                            <b class="mr-2">{{ pm.user_from }} >> {{ pm.user_to }}</b>
+                            {{ pm.date_sent|date:"F d, Y g:h a" }}
+                        </small>
+                        {% if not pm.is_read %}
+                            <span class="text-muted unread-pm"></span>
+                        {% endif %}
+                    </div>
+                    <p class="js-container-mini article-content">{{ pm.content|truncatewords:10 }}</p>
+                    <a href="{% url 'message' pm.id %}">{% trans 'More' %}</a>
+                </div>
+            </section>
+        {% endfor %}
+        {% include 'includes/pagination.html' %}
+    {% else %}
+        <p>{% trans "You don't have messages yet." %}</p>
+    {% endif %}
+{% endblock %}

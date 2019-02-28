@@ -1,0 +1,16 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+    <section class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <small class="text-muted"><b class="mr-2">{% trans "From" %}: {{ private_message.user_from }}
+                    {% trans "To" %}: {{ private_message.user_to }}</b>{{ private_message.date_sent|date:"F d, Y" }}</small>
+            </div>
+            <p class="js-container-mini article-content">{{ private_message.content }}</p>
+        </div>
+    </section>
+    <a class="ml-2" href="{% url 'conversations' %}">{% trans "Back" %}</a>
+{% endblock %}

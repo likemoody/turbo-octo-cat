@@ -1,0 +1,23 @@
+{% extends 'includes/base_generic.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ block.super }} | {% trans "Book Crossing" %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for book in object_list %}
+            <div class="card mr-5 mb-5" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">{{ book.description|truncatewords:"10" }}</p>
+                    <a href="#" class="btn btn-primary">{% trans 'More' %}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include 'includes/pagination.html' %}
+{% endblock %}

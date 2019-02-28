@@ -1,0 +1,17 @@
+{% extends 'includes/base_generic.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"/>
+        <div class="media-body">
+                <h3>{% trans "Editing Post" %}</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ post_edit_form|crispy }}
+                <input class="btn btn-primary mb-4" type="submit" value="Save">
+            </form>
+        </div>
+    </article>
+{% endblock %}
