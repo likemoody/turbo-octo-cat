@@ -56,7 +56,3 @@ class MediaFiles:
                             hash_md5[2:4],
                             f'%s_{instance.pk}.%s' % (hash_md5, ext.lower())
                             )
-
-# forms
-#     init
-#     create

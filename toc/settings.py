@@ -33,6 +33,14 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
+}
+
 PROJECT_VERSION = 'alpha 0.3'
 
 # Application definition
@@ -47,7 +55,8 @@ INSTALLED_APPS = [
     'app_blog.apps.AppBlogConfig',
     'app_users.apps.AppUsersConfig',
     'app_bookcrossing.apps.AppBookcrossingConfig',
-    'crispy_forms'
+    'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -66,14 +75,14 @@ ROOT_URLCONF = 'toc.urls'
 
 TEMPLATES = [
     {
-        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
-        'DIRS'    : [
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
             os.path.join(BASE_DIR, 'app_blog/templates/app_blog'),
             os.path.join(BASE_DIR, 'app_users/templates/app_users'),
             os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
-        'OPTIONS' : {
+        'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -97,22 +106,22 @@ WSGI_APPLICATION = 'toc.wsgi.application'
 if LOCAL:
     DATABASES = {
         'default': {
-            'HOST'    : '127.0.0.1',
-            'NAME'    : env_vars.DB_NAME,
-            'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-            'USER'    : env_vars.DB_LOGIN,
+            'HOST': '127.0.0.1',
+            'NAME': env_vars.DB_NAME,
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'USER': env_vars.DB_LOGIN,
             'PASSWORD': env_vars.DB_PASS,
         }
     }
 else:
     DATABASES = {
         'default': {
-            'HOST'    : os.environ.get("DB_HOST"),
-            'NAME'    : os.environ.get("DB_NAME"),
-            'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-            'USER'    : os.environ.get("DB_LOGIN"),
+            'HOST': os.environ.get("DB_HOST"),
+            'NAME': os.environ.get("DB_NAME"),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'USER': os.environ.get("DB_LOGIN"),
             'PASSWORD': os.environ.get("DB_PASS"),
-            'PORT'    : os.environ.get("DB_PORT"),
+            'PORT': os.environ.get("DB_PORT"),
         }
     }
 

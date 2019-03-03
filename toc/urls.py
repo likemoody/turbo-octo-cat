@@ -21,12 +21,19 @@ from django.urls.conf import include
 
 from .settings import *
 
+from app_blog.views import api
+from rest_framework.urlpatterns import format_suffix_patterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     # path('', include('app_blog.urls')),
     # path('', include('app_users.urls')),
+    path('api-posts/', api.PostList.as_view(), name='api-posts'),
+    path('api-posts/<int:pk>/', api.PostSingle.as_view(), name='api-post'),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
 
 urlpatterns += i18n_patterns(
     path('', include('app_blog.urls')),
