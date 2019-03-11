@@ -26,7 +26,7 @@ SECRET_KEY = os.path.join(BASE_DIR, '../../sensitive/env_vars.py')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-LOCAL = True
+LOCAL = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -118,12 +118,12 @@ if LOCAL:
 else:
     DATABASES = {
         'default': {
-            'HOST': os.environ.get("DB_HOST"),
-            'NAME': os.environ.get("DB_NAME"),
+            'HOST': os.environ.get("DB_HOST_PMD"),
+            'NAME': os.environ.get("DB_NAME_PMD"),
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'USER': os.environ.get("DB_LOGIN"),
-            'PASSWORD': os.environ.get("DB_PASS"),
-            'PORT': os.environ.get("DB_PORT"),
+            'USER': os.environ.get("DB_LOGIN_PMD"),
+            'PASSWORD': os.environ.get("DB_PASS_PMD"),
+            'PORT': os.environ.get("DB_PORT_PMD"),
         }
     }
 
@@ -261,5 +261,5 @@ import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-# Activate Django-Heroku.
+# Activate Django-Heroku added at the bottom
 django_heroku.settings(locals())
