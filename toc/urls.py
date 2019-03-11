@@ -31,6 +31,7 @@ urlpatterns = [
     # path('', include('app_users.urls')),
     path('api-posts/', api.PostList.as_view(), name='api-posts'),
     path('api-posts/<int:pk>/', api.PostSingle.as_view(), name='api-post'),
+    path('', include('django_telegrambot.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
