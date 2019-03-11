@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.path.join(BASE_DIR, '../../sensitive/env_vars.py')
+SECRET_KEY = os.environ.get('SECRET_KEY_PMD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -109,10 +109,10 @@ if LOCAL:
     DATABASES = {
         'default': {
             'HOST': '127.0.0.1',
-            'NAME': env_vars.DB_NAME,
+            'NAME': os.environ.get('DB_NAME_LOCAL'),
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'USER': env_vars.DB_LOGIN,
-            'PASSWORD': env_vars.DB_PASS,
+            'USER': os.environ.get('DB_LOGIN_LOCAL'),
+            'PASSWORD': os.environ.get('DB_PASS_LOCAL'),
         }
     }
 else:
